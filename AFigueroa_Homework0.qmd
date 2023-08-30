@@ -45,8 +45,8 @@ if (discriminate > 0) {
       print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
                        when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
             quote = FALSE)
-    }
 
+      }
 ```
 
 
