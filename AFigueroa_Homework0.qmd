@@ -21,11 +21,7 @@ c <- 2
 discriminate <- b^2 - 4*a*c 
 
 if (discriminate > 0) {
-<<<<<<< HEAD
   # Two real-valued solutions
-=======
-  
->>>>>>> 7e9207ebb2ef1f64c6105d3d581b3132e878021e
   realsolution1 <- (-b - sqrt(discriminate)) / 2*a
   realsolution2 <- (-b + sqrt(discriminate)) / 2*a
   
@@ -36,11 +32,7 @@ if (discriminate > 0) {
         quote = FALSE)
   
 } else if (discriminate == 0) {
-<<<<<<< HEAD
   # One real-valued solution
-=======
-  
->>>>>>> 7e9207ebb2ef1f64c6105d3d581b3132e878021e
   realsolution <- -b / 2*a
   
   print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + c 
@@ -49,16 +41,11 @@ if (discriminate > 0) {
         quote = FALSE)
   
 } else {
-<<<<<<< HEAD
-  # No real-valued solutions 
-=======
-  
->>>>>>> 7e9207ebb2ef1f64c6105d3d581b3132e878021e
+  # No real-valued solution
   print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
                        when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
         quote = FALSE)
 }
-
 ```
 
 
