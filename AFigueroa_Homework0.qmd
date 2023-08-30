@@ -31,21 +31,22 @@ if (discriminate > 0) {
                        realsolution2, ".")), 
         quote = FALSE)
   
-} else if (discriminate == 0) {
-  # One real-valued solution
-  realsolution <- -b / 2*a
+  } else if (discriminate == 0) {
+    # One real-valued solution
+    realsolution <- -b / 2*a
   
-  print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + c 
+    print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + c 
                        when a = ", a, ", b = ", b, ", and c = ", c, ".",
                        "The solution is x =", realsolution, ".")),
-        quote = FALSE)
+          quote = FALSE)
   
-} else {
-  # No real-valued solution
-  print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
+    } else {
+      # No real-valued solution
+      print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
                        when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
-        quote = FALSE)
-}
+            quote = FALSE)
+    }
+
 ```
 
 
