@@ -1,7 +1,9 @@
 ---
 title: "BST 260 - Homework 0"
 author: "Alena Figueroa"
-format: html
+format: 
+  html:
+    self-contained: true
 editor: visual
 ---
 
