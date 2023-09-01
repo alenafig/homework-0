@@ -21,31 +21,49 @@ c <- 2
 # Compute the discriminate to determine the number of solutions 
 discriminate <- b^2 - 4*a*c 
 
+# Condition on whether the discriminate is negative, zero, or positive
+# If negative, no real solution
+# If 0, one real solution
+# If positive, two real solutions 
 if (discriminate < 0) {
+  
     # No real solution
+    # Print a statement regarding the number of real solutions to the function 
+    # for the givens values of a, b, and c
     print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx +
                          c when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
             quote = FALSE)
-    solutions <- NA
-  } else if (discriminate == 0) {
-    # One real solution
-    realsolution <- -b / 2*a
   
+    # Store solution (in this case there are none)
+    solutions <- NA
+    
+  } else if (discriminate == 0) {
+    
+    # Solve for one real solution 
+    realsolution <- -b / 2*a
+    
+    # Print solution 
     print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + 
                          c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
                          "The solution is x =", realsolution, ".")),
           quote = FALSE)
+    
+    # Store solution
     solutions <- realsolution
+    
     } else {
-      # if discriminate > 0 
-      # Two real solutions
+      
+      # Solve for two real solutions 
       realsolution1 <- (-b - sqrt(discriminate)) / 2*a
       realsolution2 <- (-b + sqrt(discriminate)) / 2*a
   
+      # Print solutions 
       print(strwrap(paste0("There are two real solutions to f(x) = ax\u00B2 + bx 
                            + c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
                            " The solutions are x = ", realsolution1,
                            " and x = ", realsolution2, ".")), quote = FALSE)
+      
+      # Store solutions 
       solutions <- c(realsolution1, realsolution2)
       }
 ```
@@ -54,10 +72,18 @@ if (discriminate < 0) {
 
 ```{r, fig.width = 6, fig.height = 5, fig.align = 'center'}
 #| echo: false
+
+# Store a sequence from -5 to 5 with length 300 in the variable x 
 x <- seq(-5, 5, length = 300)
+
+# Plot the quadratic function for each value in the sequence x 
 plot(x, a*x^2 + b*x + c, type = "l", ylab = "f(x)", ylim = c(-2, 43))
+
+# Add a line at f(x) = 0
 abline(h = 0, lty = 2)
+
+# Add points where the quadratic function and horizontal line cross
 points(solutions, rep(0, length(solutions)), pch = 16, col = "cornflowerblue")
 ```
 
-The solid black curve in the plot above shows the graph of $f(x)$ for $x \in (-5,5)$. The points where the curve and horizontal line at $f(x) = 0$ intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$. That is, the points of intersections provide the real-values of $x$ for which $f(x) = 0$. 
+The solid black curve (i.e., the parabola) in the plot above shows the graph of $f(x)$ for $x \in (-5,5)$. The points where the curve and horizontal line at $f(x) = 0$ intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$. That is, the points of intersection provide the real-values of $x$ for which $f(x) = 0$. 
