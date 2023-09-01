@@ -1,0 +1,66 @@
+---
+title: "BST 260 - Homework 0"
+author: "Alena Figueroa"
+format: html
+editor: visual
+---
+
+## Exercises
+
+(@) Write a Quarto document that defines variables $a = 1, b = -1, c = -2$
+and print out the solutions to $f(x) = ax^2 + bx + c = 0$. Do not report complex 
+solutions, only real numbers. 
+
+```{r}
+#| echo: false
+# Define variables a, b, and c
+a <- 1
+b <- 3
+c <- 2
+
+# Compute the discriminate to determine the number of solutions 
+discriminate <- b^2 - 4*a*c 
+
+if (discriminate > 0) {
+  # Two real-valued solutions
+  realsolution1 <- (-b - sqrt(discriminate)) / 2*a
+  realsolution2 <- (-b + sqrt(discriminate)) / 2*a
+  
+  print(strwrap(paste0("There are two real solutions to f(x) = ax\u00B2 + bx + c
+                       when a = ", a, ", b = ", b, ", and c = ", c, ".",
+                       " The solutions are x = ", realsolution1, " and x = ", 
+                       realsolution2, ".")), 
+        quote = FALSE)
+  
+  } else if (discriminate == 0) {
+    # One real-valued solution
+    realsolution <- -b / 2*a
+  
+    print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + c 
+                       when a = ", a, ", b = ", b, ", and c = ", c, ".",
+                       "The solution is x =", realsolution, ".")),
+          quote = FALSE)
+  
+    } else {
+      # No real-valued solution
+      print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
+                       when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
+            quote = FALSE)
+
+      }
+```
+
+
+(@) Include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$.
+
+```{r, fig.width = 5, fig.height = 4, fig.align = 'center'}
+#| echo: false
+x <- seq(-5, 5, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l", ylab = "f(x)", ylim = c(-2, 43))
+abline(h = 0, lty = 2)
+```
+The solid black curve in the plot aboves shows the graph of $f(x)$ versus $x$ 
+for $x \in (-5,5)$. The points where the curve and horizontal line at $f(x) = 0$
+intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$. 
+
+
