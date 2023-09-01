@@ -20,22 +20,23 @@ c <- 2
 discriminate <- b^2 - 4*a*c 
 
 if (discriminate < 0) {
-    # No real-valued solution
-      print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx + c 
-                       when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
+    # No real solution
+    print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx +
+                         c when a = ", a, ", b = ", b, " , and c = ", c, ".")), 
             quote = FALSE)
-
+    solutions <- NA
   } else if (discriminate == 0) {
-    # One real-valued solution
+    # One real solution
     realsolution <- -b / 2*a
   
-    print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + c 
-                       when a = ", a, ", b = ", b, ", and c = ", c, ".",
-                       "The solution is x =", realsolution, ".")),
+    print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + 
+                         c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
+                         "The solution is x =", realsolution, ".")),
           quote = FALSE)
-  
+    solutions <- realsolution
     } else {
-      # Two real-valued solutions
+      # if discriminate > 0 
+      # Two real solutions
       realsolution1 <- (-b - sqrt(discriminate)) / 2*a
       realsolution2 <- (-b + sqrt(discriminate)) / 2*a
   
@@ -43,17 +44,18 @@ if (discriminate < 0) {
                            + c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
                            " The solutions are x = ", realsolution1,
                            " and x = ", realsolution2, ".")), quote = FALSE)
-    
+      solutions <- c(realsolution1, realsolution2)
       }
 ```
 
 (2) Include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$.
 
-```{r, fig.width = 5, fig.height = 4, fig.align = 'center'}
+```{r, fig.width = 6, fig.height = 5, fig.align = 'center'}
 #| echo: false
 x <- seq(-5, 5, length = 300)
 plot(x, a*x^2 + b*x + c, type = "l", ylab = "f(x)", ylim = c(-2, 43))
 abline(h = 0, lty = 2)
+points(solutions, rep(0, length(solutions)), pch = 16, col = "cornflowerblue")
 ```
 
-The solid black curve in the plot aboves shows the graph of $f(x)$ versus $x$ for $x \in (-5,5)$. The points where the curve and horizontal line at $f(x) = 0$ intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$.
+The solid black curve in the plot above shows the graph of $f(x)$ for $x \in (-5,5)$. The points where the curve and horizontal line at $f(x) = 0$ intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$. That is, the points of intersections provide the real-values of $x$ for which $f(x) = 0$. 
