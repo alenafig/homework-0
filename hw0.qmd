@@ -1,0 +1,103 @@
+---
+title: "BST 260 - Homework 0"
+author: "Alena Figueroa"
+format: 
+  html:
+    self-contained: true
+editor: visual
+---
+
+## Exercises
+
+(1) Define variables $a$, $b$, and $c$ and print the real-valued solutions
+to $f(x) = ax^2 + bx + c = 0$. 
+
+```{r}
+#| echo: false
+
+# Define variables a, b, and c
+a <- 1
+b <- 3
+c <- 2
+
+# Compute the discriminate to determine the number of solutions 
+discriminate <- b^2 - 4*a*c 
+
+# Condition on whether the discriminate is negative, zero, or positive
+# If negative, there is no real solution
+# If 0, there is one real solution
+# If positive, there are two real solutions 
+if (discriminate < 0) {
+  
+    # No real solution
+    # Print a statement regarding the number of real solutions to the function 
+    # for the given values of a, b, and c
+    print(strwrap(paste0("There are no real solutions to f(x) = ax\u00B2 + bx +
+                         c when a = ", a, ", b = ", b, ", and c = ", c, ".")), 
+            quote = FALSE)
+  
+    # Store solution (in this case there are none)
+    solutions <- NA
+    
+  } else if (discriminate == 0) {
+    
+    # Solve for one real solution 
+    realsolution <- -b / 2*a
+    
+    # Print solution 
+    print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + 
+                         c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
+                         "The solution is x =", realsolution, ".")),
+          quote = FALSE)
+    
+    # Store solution
+    solutions <- realsolution
+    
+    } else {
+      
+      # Solve for two real solutions 
+      realsolution1 <- (-b - sqrt(discriminate)) / 2*a
+      realsolution2 <- (-b + sqrt(discriminate)) / 2*a
+  
+      # Print solutions 
+      print(strwrap(paste0("There are two real solutions to f(x) = ax\u00B2 + bx 
+                           + c when a = ", a, ", b = ", b, ", and c = ", c, ".", 
+                           " The solutions are x = ", realsolution1,
+                           " and x = ", realsolution2, ".")), quote = FALSE)
+      
+      # Store solutions 
+      solutions <- c(realsolution1, realsolution2)
+      }
+```
+
+(2) Plot $f(x)$ versus $x$ for $x \in (-5,5)$ to confirm the solutions found 
+in (1).
+
+```{r, fig.width = 6, fig.height = 5, fig.align = 'center'}
+#| echo: false
+
+# Store a sequence from -5 to 5 with length 300 in the variable x 
+x <- seq(-5, 5, length = 300)
+
+# Plot f(x) = ax^2 + bx + c for each value in the sequence x 
+plot(x, a*x^2 + b*x + c, type = "l", ylab = "f(x)", ylim = c(-2, 43))
+
+# Add a horizontal line at f(x) = 0
+abline(h = 0, lty = 2)
+
+# Add points where the quadratic function f(x) and horizontal line cross
+points(solutions, rep(0, length(solutions)), pch = 16, col = "cornflowerblue")
+```
+
+The solid black curve (i.e., the parabola) in the plot above shows the graph of 
+the quadratic function $f(x) = ax^2 + bx + c$ for $x \in (-5,5)$ for a given $a$,
+$b$, and $c$ (defined above). The points where the curve and horizontal line at 
+$f(x) = 0$ intersect are the real-valued solutions to $f(x) = ax^2 + bx + c = 0$.
+That is, the points of intersection provide the real-values of $x$ for which the
+function $f(x) = ax^2 + bx + c = 0$. If the curve and horizontal line do not 
+intersect, there are no real-values of $x$ for which the function
+$f(x) = ax^2 + bx + c = 0$. If the curve and horizontal line intersect at one 
+point or two points, then there are either one or two real-valued solutions, 
+respectively. In the case where $a = 1$, $b = 3$, and $c = 2$, there are two 
+real solutions at $x = -2$ and $x = -1$, which is confirmed in the plot since 
+there are two points of intersection that correspond to these values of $x$. 
