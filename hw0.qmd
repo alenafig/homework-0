@@ -42,7 +42,7 @@ if (discriminate < 0) {
   } else if (discriminate == 0) {
     
     # Solve for one real solution 
-    realsolution <- -b / 2*a
+    realsolution <- -b / (2*a)
     
     # Print solution 
     print(strwrap(paste0("There is one real solution to  f(x) = ax\u00B2 + bx + 
