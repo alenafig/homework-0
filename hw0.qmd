@@ -22,9 +22,9 @@ c <- 2
 discriminate <- b^2 - 4*a*c 
 
 # Condition on whether the discriminate is negative, zero, or positive
-# If negative, no real solution
-# If 0, one real solution
-# If positive, two real solutions 
+# If negative, there is no real solution
+# If 0, there is one real solution
+# If positive, there are two real solutions 
 if (discriminate < 0) {
   
     # No real solution
