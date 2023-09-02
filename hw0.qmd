@@ -56,8 +56,8 @@ if (discriminate < 0) {
     } else {
       
       # Solve for two real solutions 
-      realsolution1 <- (-b - sqrt(discriminate)) / 2*a
-      realsolution2 <- (-b + sqrt(discriminate)) / 2*a
+      realsolution1 <- (-b - sqrt(discriminate)) / (2*a)
+      realsolution2 <- (-b + sqrt(discriminate)) / (2*a)
   
       # Print solutions 
       print(strwrap(paste0("There are two real solutions to f(x) = ax\u00B2 + bx 
